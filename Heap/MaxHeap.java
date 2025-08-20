@@ -35,7 +35,7 @@ public class MaxHeap
     }
 
     public void insert(int val){
-        if(current_size == total_size-1)
+        if(current_size == total_size - 1)
         {
             System.out.println("Heap is full");
             return;

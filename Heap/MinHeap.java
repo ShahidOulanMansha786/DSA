@@ -1,3 +1,5 @@
+package Heap;
+
 public class MinHeap {
     
     private int[] heapArray;
@@ -17,7 +19,7 @@ public class MinHeap {
 
     }
 
-    void insertIntoMinHeap(int val)
+    private void insertIntoMinHeap(int val)
     {
         current_size++;
         heapArray[current_size] = val;
@@ -29,7 +31,7 @@ public class MinHeap {
         }
     }
     void insert(int value){
-        if(current_size-1 == total_size){
+        if(current_size == total_size - 1){
             System.out.println("Heap overflow");
             return;
         }
@@ -44,18 +46,18 @@ public class MinHeap {
     }
 
     void heapify(int index){
-        int maxi = index;
-        int left = maxi * 2 + 1;
-        int right = maxi * 2 + 2;
+        int minimum = index;
+        int left = minimum * 2 + 1;
+        int right = minimum * 2 + 2;
 
-        if(left <= current_size && heapArray[maxi] > heapArray[left])
-            maxi = left;
-        if(right <= current_size && heapArray[maxi] > heapArray[right])
-            maxi = right;
+        if(left <= current_size && heapArray[minimum] > heapArray[left])
+            minimum = left;
+        if(right <= current_size && heapArray[minimum] > heapArray[right])
+            minimum = right;
 
-        if(maxi != index){
-            swap(heapArray, maxi, index);
-            heapify(maxi);
+        if(minimum != index){
+            swap(heapArray, minimum, index);
+            heapify(minimum);
         }
     }
 
